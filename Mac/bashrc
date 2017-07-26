@@ -10,17 +10,12 @@ LC_ALL=
 export LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME
 export PROMPT_COMMAND="echo -ne '\033]0;${USER}@macbook\007';$PROMPT_COMMAND"
 
-# Colors
-YELLOW="\[\033[01;33m\]"
-RESET="\[\033[00m\]]"
-
 # Source git prompt script
 if [ -f ~/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
   GIT_PS1_SHOWUPSTREAM="verbose"
   GIT_PS1_SHOWDIRTYSTATE="true"
   GIT_PS1_DESCRIBE_STYLE="branch"
-#  PS1='[\u@\h:\W]$YELLOW\$(__git_ps1)$RESET\$ '
   PS1='[\u@\h:\W]\[\033[01;33m\]$(__git_ps1)\[\033[00m\]\$ '
 else
   PS1='[\u@\h:\W]$ '
