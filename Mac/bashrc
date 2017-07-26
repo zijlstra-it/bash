@@ -1,0 +1,54 @@
+#Fix Locale
+LANG="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_CTYPE="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_ALL=
+export LC_COLLATE LC_CTYPE LC_MESSAGES LC_MONETARY LC_NUMERIC LC_TIME
+export PROMPT_COMMAND="echo -ne '\033]0;${USER}@macbook\007';$PROMPT_COMMAND"
+
+# Colors
+YELLOW="\[\033[01;33m\]"
+RESET="\[\033[00m\]]"
+
+# Source git prompt script
+if [ -f ~/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+  GIT_PS1_SHOWUPSTREAM="verbose"
+  GIT_PS1_SHOWDIRTYSTATE="true"
+  GIT_PS1_DESCRIBE_STYLE="branch"
+#  PS1='[\u@\h:\W]$YELLOW\$(__git_ps1)$RESET\$ '
+  PS1='[\u@\h:\W]\[\033[01;33m\]$(__git_ps1)\[\033[00m\]\$ '
+else
+  PS1='[\u@\h:\W]$ '
+fi
+
+# fancy prompt with colors 
+#PS1='[\[\033[01;35m\]\u@\h:\[\033[00m\]]\w\$ '
+
+# hsitory timestamps
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Aliases
+alias rm='rm -i'
+alias ls='ls -G'
+alias ll='ls -G -l'
+alias la='ls -G -la'
+alias lt='ls -G -ltr'
+if [ -f ~/TMG/bin/ssh-or-copy-id.sh ]; then
+  alias ssh='~/TMG/bin/ssh-or-copy-id.sh'
+fi
+
+# PATH with my scrippies
+PATH=$PATH:~/TMG/bin
+
+export PATH
+
+PATH="/Users/sanderz/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/sanderz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/sanderz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/sanderz/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/sanderz/perl5"; export PERL_MM_OPT;
