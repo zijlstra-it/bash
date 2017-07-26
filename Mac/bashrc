@@ -16,6 +16,7 @@ if [ -f ~/.git-prompt.sh ]; then
   GIT_PS1_SHOWUPSTREAM="verbose"
   GIT_PS1_SHOWDIRTYSTATE="true"
   GIT_PS1_DESCRIBE_STYLE="branch"
+  GIT_PS1_SHOWUNTRACKEDFILES="true"
   PS1='[\u@\h:\W]\[\033[01;33m\]$(__git_ps1)\[\033[00m\]\$ '
 else
   PS1='[\u@\h:\W]$ '
