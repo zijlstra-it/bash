@@ -22,6 +22,29 @@ fi
 # hsitory timestamps
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+# apt-history functie
+### options:  install | remove | rollback
+function apt-history(){
+
+      case "$1" in
+        install)
+              grep 'install ' /var/log/dpkg.log
+              ;;
+        upgrade|remove)
+              grep $1 /var/log/dpkg.log
+              ;;
+        rollback)
+              grep upgrade /var/log/dpkg.log | \
+                  grep "$2" -A10000000 | \
+                  grep "$3" -B10000000 | \
+                  awk '{print $4"="$5}'
+              ;;
+        *)
+              cat /var/log/dpkg.log
+              ;;
+      esac
+}
+
 # vang sudo af
 f_sudo() {
   if [ ! "$#" = 0 ]; then
