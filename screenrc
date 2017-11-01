@@ -1,0 +1,43 @@
+#
+# My screenrc file - Sander Zijlstra
+#
+
+# no annoying audible bell, please
+vbell on
+
+# detach on hangup
+autodetach on
+
+# make the shell in every window a login shell
+shell -${SHELL}
+
+# don't display the copyright page
+startup_message off
+
+# keep scrollback n lines
+defscrollback 1000
+
+# Status lines
+hardstatus on
+#hardstatus alwayslastline
+#hardstatus alwayslastline "%{C}Host:%{W} %H %{g}|%{C} Load:%{W} %l %{g}|"
+caption always '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+# Show this terminal title string
+#hardstatus string "%H" 
+
+# Scroll back
+defscrollback 1024
+
+# bind F1 to F5 to the first 5 sessions
+bindkey -k k1 select 0
+bindkey -k k2 select 1
+bindkey -k k3 select 2
+bindkey -k k4 select 3
+bindkey -k k5 select 4
+
+# Start some screens in certain locations
+screen -t Shell-1
+screen -t Shell-2
+screen -t Shell-3
+screen -t Shell-4
