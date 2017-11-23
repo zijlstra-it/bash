@@ -26,8 +26,10 @@ fi
 # fancy prompt with colors 
 #PS1='[\[\033[01;35m\]\u@\h:\[\033[00m\]]\w\$ '
 
-# hsitory timestamps
+# history settings
 export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTFILESIZE=10000
+export HISTSIZE=10000
 
 # Aliases
 alias rm='rm -i'
